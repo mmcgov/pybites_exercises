@@ -10,12 +10,11 @@ def print_colors():
     while True:
         color = input('Enter a color: ')
         color = color.lower()
-        if color=='quit':
+        if color == 'quit':
             print('bye')
             break
         elif color not in VALID_COLORS:
             print('Not a valid color')
             continue
         elif color in VALID_COLORS:
-            print color
-            
+            print(color)
