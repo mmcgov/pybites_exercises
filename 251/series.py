@@ -8,7 +8,6 @@ def basic_series() -> pd.Series:
     Don't worry about the indexes for now.
     The name of the series should be 'Fred'
     """
-    Fred = pd.Series([1,2,3,4,5]) 
     return pd.Series(data=[1,2,3,4,5], name='Fred')
 
 
