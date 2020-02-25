@@ -36,6 +36,6 @@ def object_values_series() -> pd.Series:
     Don't worry about the series name.
     """
     ser = pd.Series([letter for letter in string.ascii_lowercase],
-                     index = [linspace(start = 101,stop = 126,num = 26, dtype = int)])
+                     index = [np.linspace(start = 101,stop = 126,num = 26, dtype = int)])
     return ser
 
