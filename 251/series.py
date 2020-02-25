@@ -34,7 +34,7 @@ def object_values_series() -> pd.Series:
     so index 101='A', 102='B' ... 125='Y', 126='Z'
     Don't worry about the series name.
     """
-    ser = pd.Series([letter for letter in string.ascii_lowercase],
+    ser = pd.Series([letter for letter in string.ascii_uppercase],
                      index = [np.linspace(start = 101,stop = 126,num = 26, dtype = int)])
     return ser
 
