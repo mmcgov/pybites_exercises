@@ -1,5 +1,5 @@
 import string
-
+import numpy as np
 import pandas as pd
 
 
@@ -9,7 +9,7 @@ def basic_series() -> pd.Series:
     The name of the series should be 'Fred'
     """
     Fred = pd.Series([1,2,3,4,5]) 
-    return Fred
+    return pd.Series(data=[1,2,3,4,5], name='Fred')
 
 
 def float_series() -> pd.Series:
@@ -17,7 +17,7 @@ def float_series() -> pd.Series:
     from 0.000 -> 1.000 e.g. 0.000, 0.001, 0.002... 0.999, 1.000
     Don't worry about the indexes or the series name.
     """
-    return pd.Series(linspace(0,1,1001))
+    return pd.Series(np.linspace(0,1,1001))
 
 def alpha_index_series() -> pd.Series:
     """Create a Series with values 1, 2, ... 25, 26 of type int64
@@ -25,7 +25,8 @@ def alpha_index_series() -> pd.Series:
     so index 'a'=1, 'b'=2 ... 'y'=25, 'z'=26
     Don't worry about the series name.
     """
-    ser = pd.Series(linspace(1,26,26), index = [string.ascii_lowercase])
+    ser = pd.Series(np.linspace(start = 1,stop = 26,num = 26, dtype = int),
+                    index = [letter for letter in string.ascii_lowercase])
     return ser
 
 def object_values_series() -> pd.Series:
@@ -34,6 +35,7 @@ def object_values_series() -> pd.Series:
     so index 101='A', 102='B' ... 125='Y', 126='Z'
     Don't worry about the series name.
     """
-    ser = pd.Series(string.ascii_lowercase, index = [linspace(101,126,26)])
+    ser = pd.Series([letter for letter in string.ascii_lowercase],
+                     index = [linspace(start = 101,stop = 126,num = 26, dtype = int)])
     return ser
 
