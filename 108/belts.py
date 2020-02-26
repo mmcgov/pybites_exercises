@@ -25,6 +25,6 @@ def get_total_points(belts=ninja_belts):
     """
     total = 0
     for key in belts.keys():
-          sub_total = belts[key].score*belts[key].ninjas
-          total+=sub_total
+        sub_total = belts[key].score*belts[key].ninjas
+        total += sub_total
     return total
