@@ -18,9 +18,9 @@ def print_game_stats(games_won):
        is retained so no sorting is required for this Bite.)
     """
     for key in games_won:
-        if games_won[key]>1:
+        if games_won[key] > 1:
             print(f'{key} has won {games_won[key]} games')
-        elif games_won[key]==1:
+        elif games_won[key] == 1:
             print(f'{key} has won {games_won[key]} game')
         else:
             print(f'{key} has won 0 games')
