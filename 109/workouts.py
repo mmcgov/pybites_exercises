@@ -31,7 +31,7 @@ def get_workout_motd(day):
     """
     day = day.title()
     if day not in WORKOUT_SCHEDULE.keys():
-        return 'INVALID_DAY'
+        return INVALID_DAY
     elif day in ['Saturday', 'Sunday']:
         return CHILL_OUT
     else:
