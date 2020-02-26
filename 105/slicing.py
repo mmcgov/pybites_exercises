@@ -24,6 +24,7 @@ def slice_and_dice(text: str = text) -> list:
     text = text.split('\n')
     for line in text:
         if line[0].islower():
+            last_word = last_word.strip()
             last_word = line.split(' ')[-1]
             last_word = last_word.replace('.','').replace('!','')
             results.append(last_word)
