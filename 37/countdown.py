@@ -3,9 +3,9 @@ def countdown_for(start=10):
         print(i)
     print('time is up')
 
-
 def countdown_recursive(start=10):
-    while start>=1:
+    if start == 0:
+        print('time is up')
+    else:
         print(start)
-        start = start - 1
-    print('time is up')
+        countdown_recursive(start - 1)
