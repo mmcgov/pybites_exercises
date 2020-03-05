@@ -14,9 +14,12 @@ def create_parser():
        Create an ArgumentParser adding the right arguments to pass the tests,
        returns a argparse.ArgumentParser object"""
     parser = argparse.ArgumentParser()
-    parser.add_argument('-w', '--weight', required=True, help='Your weight in kg')
-    parser.add_argument('-l', '--length', required=True, help='Your length in cm')
+    parser.add_argument('-w', '--weight', required=True,
+                         help='Your weight in kg')
+    parser.add_argument('-l', '--length', required=True,
+                         help='Your length in cm')
     return parser
+
 
 def handle_args(args=None):
     """Provided/DONE:
