@@ -15,9 +15,9 @@ def create_parser():
        returns a argparse.ArgumentParser object"""
     parser = argparse.ArgumentParser()
     parser.add_argument('-w', '--weight', required=True,
-                         help='Your weight in kg')
+                        help='Your weight in kg')
     parser.add_argument('-l', '--length', required=True,
-                         help='Your length in cm')
+                        help='Your length in cm')
     return parser
 
 
