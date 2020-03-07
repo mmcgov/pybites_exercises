@@ -7,9 +7,10 @@ pycon_date = date(2018, 5, 8)
 
 def get_hundred_days_end_date():
     """Return a string of yyyy-mm-dd"""
-    pass
+    return strptime(start_100days + timedelta(days=100), 'yyyy-mm-dd')
 
 
 def get_days_between_pb_start_first_joint_pycon():
     """Return the int number of days"""
-    pass
+    time_period = pycon_date - pybites_founded
+    return int(time_period.days)
