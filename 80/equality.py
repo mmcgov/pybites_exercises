@@ -1,6 +1,7 @@
 from enum import Enum
 from collections import Counter
 
+
 class Equality(Enum):
     SAME_REFERENCE = 4
     SAME_ORDERED = 3
