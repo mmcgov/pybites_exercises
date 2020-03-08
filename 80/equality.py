@@ -23,7 +23,7 @@ def check_equality(list1, list2):
         return Equality.SAME_REFERENCE
     elif list1 == list2:
         return Equality.SAME_ORDERED
-    elif Counter(list1) == Counter(list2)
+    elif Counter(list1) == Counter(list2):
         return Equality.SAME_UNORDERED
     elif set(list1) == set(list2):
         return Equality.SAME_UNORDERED_DEDUPED
