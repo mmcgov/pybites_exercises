@@ -3,17 +3,13 @@ def wc(file_):
        lines/words/chars, and returns a string of these numbers + file, e.g.:
        3 12 60 /tmp/somefile
        (both tabs and spaces are allowed as separator)"""
-    lines = 0
-    words = 0
-    characters = 0
-    with open(file_, 'r') as f:
-        text = f.read()
-        for line in text.splitlines(True):
-            wordslist = line.split()
-            lines = lines + 1
-            words = words + len(wordslist)
-            characters = characters + len(line)
-    return print(f'{lines}'+' '+f'{words}'+' '+f'{characters}'+' '+f'{file_}')
+    with open(file_) as f:
+        content = f.read()
+        num_lines = len(content.splitlines())
+        num_words = len(content.split())
+        num_chars = len(content)
+        numbers = f'{num_lines}\t{num_words}\t{num_chars}'
+        return f'{numbers} {file_}'
 
 if __name__ == '__main__':
     # make it work from cli like original unix wc
