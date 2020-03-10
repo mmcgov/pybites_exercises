@@ -20,7 +20,7 @@ def most_prolific_automaker(year):
             results.append(data[car]['automaker'])
         else:
             continue
-    return max(results)
+    return Counter(results).most_common(1)[0][0]
     
 
 
