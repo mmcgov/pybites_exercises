@@ -21,7 +21,6 @@ def most_prolific_automaker(year):
         else:
             continue
     return Counter(results).most_common(1)[0][0]
-    
 
 
 def get_models(automaker, year):
@@ -29,7 +28,7 @@ def get_models(automaker, year):
        return a set of models (a 'set' to avoid duplicate models)"""
     results = list()
     for car in range(len(data)):
-        if  data[car]['automaker'] == automaker and data[car]['year'] == year:
+        if data[car]['automaker'] == automaker and data[car]['year'] == year:
             results.append(data[car]['model'])
         else:
             continue
