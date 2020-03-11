@@ -65,9 +65,6 @@ def check_bt(donor, recipient):
         if type(donor) == str:
             donor = blood_type_text[donor].value
             recipient = blood_type_text[recipient].value
-        if type(donor) == int:
-            donor = donor
-            recipient = recipient
         else:
             raise TypeError
     except ValueError:
