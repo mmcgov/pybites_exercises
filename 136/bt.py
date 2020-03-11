@@ -25,6 +25,7 @@ class Bloodtype(Enum):
     AB_POS = 7
 
 
+
 blood_type_text = {
     "0-": Bloodtype.ZERO_NEG,
     "0+": Bloodtype.ZERO_POS,
@@ -35,6 +36,8 @@ blood_type_text = {
     "AB-": Bloodtype.AB_NEG,
     "AB+": Bloodtype.AB_POS,
 }
+
+
 
 # complete :
 def check_bt(donor, recipient):
@@ -55,7 +58,20 @@ def check_bt(donor, recipient):
                    5: [4, 5, 6, 7], 
                    6: [6, 7],
                    7: [6, 7]}
-    
+    try:
+        if isinstance(donor, Bloodtype):
+            donor = donor.value
+            recipient = recipient.value
+        if type(donor) == str:
+            donor = blood_type_text[donor].value
+            recipient = blood_type_text[recipient].value
+        if type(donor) == int:
+            donor = donor
+            recipient = recipient
+        else:
+            raise TypeError
+    except ValueError:
+        raise ValueError
     
     if donor == 0 or donor == 1:
         return True
@@ -74,8 +90,6 @@ def check_bt(donor, recipient):
             return True
         else:
             return False
-
-
 
 # hint
 def _particular_antigen_comp(donor: int, recipient: int) -> tuple:
