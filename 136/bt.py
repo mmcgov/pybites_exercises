@@ -56,8 +56,8 @@ def check_bt(donor, recipient):
                    3: [2, 3, 6, 7], 
                    4: [4, 5, 6, 7], 
                    5: [4, 5, 6, 7], 
-                   6: [6, 7],
-                   7: [6, 7]}
+                   6: [6],
+                   7: [7]}
     try:
         if isinstance(donor, Bloodtype):
             donor = donor.value
