@@ -50,8 +50,8 @@ def check_bt(donor, recipient):
     """
     from collections import defaultdict
     blood_dict = defaultdict(list)
-    blood_dict = { 0: [0, 1 ,2, 3, 4, 5, 6, 7], 
-                   1: [0, 1 ,2, 3, 4, 5, 6, 7], 
+    blood_dict = { 0: [0 ,2, 3, 4, 5, 6, 7], 
+                   1: [1 ,2, 3, 4, 5, 6, 7], 
                    2: [2, 3, 6, 7], 
                    3: [2, 3, 6, 7], 
                    4: [4, 5, 6, 7], 
