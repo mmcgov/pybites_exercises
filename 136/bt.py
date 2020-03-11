@@ -55,10 +55,12 @@ def check_bt(donor, recipient):
         if type(donor) == str:
             donor = blood_type_text[donor].value
         if type(donor) == int:
+            if donor>7 or donor<0:
+                raise ValueError
             donor = donor
         else:
             raise TypeError
-    except ValueError:
+    except KeyError:
         raise ValueError
 
     try:
@@ -67,43 +69,60 @@ def check_bt(donor, recipient):
         if type(recipient) == str:
             recipient = blood_type_text[recipient].value
         if type(recipient) == int:
+            if recipient>7 or recipient<0:
+                raise ValueError
             recipient = recipient
         else:
             raise TypeError
     except ValueError:
         raise ValueError
-
+   
     blood_dict = defaultdict(list)
-    blood_dict = { 0: [0, 2, 3, 4, 5, 6, 7], 
-                   1: [1 ,2, 3, 4, 5, 6, 7], 
-                   2: [2, 3, 6, 7], 
-                   3: [2, 3, 6, 7], 
-                   4: [4, 5, 6, 7], 
-                   5: [4, 5, 6, 7], 
+    blood_dict = { 0: [0, 1, 2, 3, 4, 5, 6, 7],
+                   1: [1, 3, 5, 6, 7],
+                   2: [2, 3, 6, 7],
+                   3: [3, 6, 7],
+                   4: [4, 6, 7],
+                   5: [5, 6, 7],
                    6: [6, 7],
                    7: [7]}
+
 
     if donor == 0:
         if recipient in blood_dict[0]:
             return True
+        else:
+            return False
     if donor == 1:
         if recipient in blood_dict[1]:
             return True
+        else:
+            return False
     if donor == 2:
         if recipient in blood_dict[2]:
             return True
+        else:
+            return False
     if donor == 3:
         if recipient in blood_dict[3]:
             return True
+        else:
+            return False
     if donor == 4:
         if recipient in blood_dict[4]:
             return True
+        else:
+            return False
     if donor == 5:
         if recipient in blood_dict[5]:
             return True
+        else:
+            return False
     if donor == 6:
         if recipient in blood_dict[6]:
             return True
+        else:
+            return False
     if donor == 7:
         if recipient in blood_dict[7]:
             return True
