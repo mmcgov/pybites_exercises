@@ -50,8 +50,8 @@ def check_bt(donor, recipient):
     """
     from collections import defaultdict
     blood_dict = defaultdict(list)
-    blood_dict = { 0: [0 ,1, 2, 3, 4, 5, 6, 7], 
-                   1: [0, 1 ,2, 3, 4, 5, 6, 7], 
+    blood_dict = { 0: [0, 2, 3, 4, 5, 6, 7], 
+                   1: [1 ,2, 3, 4, 5, 6, 7], 
                    2: [2, 3, 6, 7], 
                    3: [2, 3, 6, 7], 
                    4: [4, 5, 6, 7], 
@@ -73,18 +73,24 @@ def check_bt(donor, recipient):
     except ValueError:
         raise ValueError
     
-    if donor == 0 or donor == 1:
-        return True
-    if donor == 2 or donor == 3:
+    if donor == 0:
+        if recipient in blood_dict[0]:
+            return True
+    if donor == 1:
+        if recipient in blood_dict[1]:
+            return True
+    if donor == 2:
         if recipient in blood_dict[2]:
             return True
-        else:
-            return False
-    if donor == 4 or donor == 5:
+    if donor == 3:
+        if recipient in blood_dict[3]:
+            return True
+    if donor == 4:
         if recipient in blood_dict[4]:
             return True
-        else:
-            return False
+    if donor == 5:
+        if recipient in blood_dict[5]:
+            return True
     if donor == 6:
         if recipient in blood_dict[6]:
             return True
