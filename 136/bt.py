@@ -12,6 +12,7 @@ Keywords: enum, exception handling, multi type input
 """
 
 from enum import Enum
+from collections import defaultdict
 
 
 class Bloodtype(Enum):
@@ -48,7 +49,30 @@ def check_bt(donor, recipient):
         Returns:
         bool: True for compatability, False otherwise.
     """
-    from collections import defaultdict
+    try:
+        if isinstance(donor, Bloodtype):
+            donor = donor.value
+        if type(donor) == str:
+            donor = blood_type_text[donor].value
+        if type(donor) == int:
+            donor = donor
+        else:
+            raise TypeError
+    except ValueError:
+        raise ValueError
+
+    try:
+        if isinstance(recipient, Bloodtype):
+            recipient = recipient.value
+        if type(recipient) == str:
+            recipient = blood_type_text[recipient].value
+        if type(recipient) == int:
+            recipient = recipient
+        else:
+            raise TypeError
+    except ValueError:
+        raise ValueError
+
     blood_dict = defaultdict(list)
     blood_dict = { 0: [0, 2, 3, 4, 5, 6, 7], 
                    1: [1 ,2, 3, 4, 5, 6, 7], 
@@ -58,21 +82,7 @@ def check_bt(donor, recipient):
                    5: [4, 5, 6, 7], 
                    6: [6, 7],
                    7: [7]}
-    try:
-        if isinstance(donor, Bloodtype):
-            donor = donor.value
-            recipient = recipient.value
-        if type(donor) == str:
-            donor = blood_type_text[donor].value
-            recipient = blood_type_text[recipient].value
-        if type(donor) == int:
-            donor = donor
-            recipient = recipient
-        else:
-            raise TypeError
-    except ValueError:
-        raise ValueError
-    
+
     if donor == 0:
         if recipient in blood_dict[0]:
             return True
