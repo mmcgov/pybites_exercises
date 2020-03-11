@@ -57,7 +57,7 @@ def check_bt(donor, recipient):
                    4: [4, 5, 6, 7], 
                    5: [4, 5, 6, 7], 
                    6: [6, 7],
-                   7: [6, 7]}
+                   7: [7]}
     try:
         if isinstance(donor, Bloodtype):
             donor = donor.value
@@ -85,8 +85,11 @@ def check_bt(donor, recipient):
             return True
         else:
             return False
-    if donor == 6 or donor == 7:
+    if donor == 6:
         if recipient in blood_dict[6]:
+            return True
+    if donor == 7:
+        if recipient in blood_dict[7]:
             return True
         else:
             return False
