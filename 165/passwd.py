@@ -40,5 +40,5 @@ def get_users_for_shell(passwd_output: str = PASSWD_OUTPUT,
     """Match the passwd_output string for users with grep_shell.
        Return a list of users.
     """
-    return [user.split(':')[0] for user in passwd_output.split('\n') if grep_shell in user]
+    return [user.split(':')[0] for user in passwd_output.split('\n') if grep_shell in user.split('/')]
 
