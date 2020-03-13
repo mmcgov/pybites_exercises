@@ -50,4 +50,4 @@ class User:
         """Don't hardcode the class name, hint: use a
            special attribute of self.__class__ ...
         """
-        pass
+        return self.__class__.__name__
