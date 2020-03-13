@@ -13,9 +13,9 @@ class User:
         """Return first separated by a whitespace
            and using title case for both.
         """
-        f_name = self.first_name.title()
-        l_name = self.last_name.title()
-        return f'{f_name} {l_name}'
+        # TODO 1: you code
+        return (f'{self.first_name.title()} '
+                f'{self.last_name.title()}')
 
     @property
     def username(self):
@@ -26,10 +26,10 @@ class User:
            If this is your first property, check out:
            https://pybit.es/property-decorator.html
         """
-        f_name = self.first_name[0].lower()
-        l_name = self.last_name[:8].lower()
-        return f'{f_name}{l_name}'
-
+        # TODO 2: you code
+        ret = f'{self.first_name[0]}{self.last_name[:7]}'
+        return ret.lower()
+        
     # TODO 3: you code
     #
     # add a __str__ and a __repr__
@@ -39,15 +39,12 @@ class User:
     # see also TESTS for required output
 
     def __str__(self):
-        f_name = self.first_name.title()
-        l_name = self.last_name.title()
-        uf_name = self.first_name[0].lower()
-        ul_name = self.last_name[:8].lower()
-        return f'{f_name} {l_name} ({uf_name}{ul_name})' 
-
+        return (f'{self.get_full_name} '
+                f'({self.username})')
 
     def __repr__(self):
         """Don't hardcode the class name, hint: use a
            special attribute of self.__class__ ...
         """
-        return self.__class__.__name__
+        return (f'{self.__class__.__name__}'
+                f'("{self.first_name}", "{self.last_name}")')
