@@ -30,13 +30,9 @@ Estimated variance for sample:
 def get_all_line_counts(data: str = STATS) -> list:
     """Get all 186 line counts from the STATS file,
        returning a list of ints"""
-    file, url = urlretrieve(os.path.join(S3, DATA), STATS)
-    results = list()
-    with open(file) as f: 
-        lines = f.read().splitlines()
-    for line in lines:
-        results.append(int(line.strip().split(' ')[0]))
-    return results
+    with open(data) as f:
+        for line in f:
+            yield int(line.strip().split()[0])
 
 
 def create_stats_report(data=None):
