@@ -1,0 +1,5 @@
+13 01/test_numbers.py
+17 02/test_regex.py
+23 03/test_wordvalue.py
+15 04/test_tags.py
+21 05/test_names.py
