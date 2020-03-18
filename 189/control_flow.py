@@ -3,18 +3,16 @@ QUIT_CHAR = 'q'
 MAX_NAMES = 5
 
 
+def _name_has_digit(name):
+    return any(c.isdigit() for c in name)
+
+
 def filter_names(names):
-    results = list()
+    count = 0
     for name in names:
-        if name[0] == IGNORE_CHAR:
+        if name.startswith(IGNORE_CHAR) or _name_has_digit(name):
             continue
-        elif any(char.isdigit() for char in name):
-            continue
-        elif name[0] == QUIT_CHAR:
+        elif name.startswith(QUIT_CHAR) or count >= MAX_NAMES:
             break
-        elif len(results) < MAX_NAMES:
-            results.append(name)
-        else:
-            print('break')
-            break
-    return results
+        count += 1
+        yield name
