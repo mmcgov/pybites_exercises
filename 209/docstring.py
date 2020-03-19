@@ -1,0 +1,9 @@
+def sum_numbers(numbers):
+    """Sums numbers
+    :param numbers: list of numbers, defaults to 10
+    :type numbers: list
+    :raises TypeError: if not all numeric values passed in
+    :return: sum of numbers
+    :rtype: int
+    """
+    pass
