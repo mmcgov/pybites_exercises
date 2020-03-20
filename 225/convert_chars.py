@@ -6,8 +6,8 @@ def convert_pybites_chars(text):
        Return the resulting string."""
  #   return [c.upper() if c.islower() else c.lower() for c in text if c.lower() in PYBITES]
     for char in text:
-        if char.lower() in PYBITES:
+        if (char.lower() in PYBITES) and (char.islower()):
             text = text.replace(char, char.upper())
-        elif char.upper() in PYBITES:
+        elif (char.lower() in PYBITES) and (char.isupper()):
             text = text.replace(char, char.lower())
     return text
