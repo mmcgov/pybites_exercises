@@ -3,23 +3,23 @@ from numbers_to_dec import list_to_decimal
 
 
 # test ValueError
-@pytest.mark.parametrize(arg, ([3,2], 32), ([3,6,4,2], 3642) ([2,3], 23))
+@pytest.mark.parametrize('arg, expected', ([3,2], 32), ([3,6,4,2], 3642) ([2,3], 23))
 def test_list_to_decimal(arg, expected) -> None:
     assert list_to_decimal(arg) == expected
 
 
 # test ValueError
-@pytest.mark.parametrize(arg, [[3,2,True], [3.6,4,2], ['g',2,3]])
+@pytest.mark.parametrize('arg', [[3,2,True], [3.6,4,2], ['g',2,3]])
 def test_TypeError(arg) -> None:
     with pytest.raises(TypeError):
         result = list_to_decimal(arg)
 
 
 # test TypeError
-@pytest.mark.parametrize(arg, [[-3,2], [13,2]])
+@pytest.mark.parametrize('arg', [[-3,2], [13,2]])
 def test_ValueError() -> None:
-    with pytest.raises(TypeError):
-        assert list_to_decimal(arg) == 1
+    with pytest.raises(ValueError):
+        result = list_to_decimal(arg)
 
 
 # test out of range error
