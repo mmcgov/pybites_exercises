@@ -1,12 +1,30 @@
 import pytest
 from numbers_to_dec import list_to_decimal
 
+
 # test ValueError
-def test_list_to_decimal_ValueError() -> None:
-    with pytest.raises(ValueError):
-        assert list_to_decimal(-1) == 1
+@pytest.mark.parametrize(arg, ([3,2], 32), ([3,6,4,2], 3642) ([2,3], 23))
+def test_list_to_decimal(arg, expected) -> None:
+    assert list_to_decimal(arg) == expected
+
+
+# test ValueError
+@pytest.mark.parametrize(arg, [[3,2,True], [3.6,4,2], ['g',2,3]])
+def test_TypeError(arg) -> None:
+    with pytest.raises(TypeError):
+        result = list_to_decimal(arg)
+
 
 # test TypeError
-def test_list_to_decimal_ValueError() -> None:
+@pytest.mark.parametrize(arg, [[-3,2], [13,2]])
+def test_ValueError() -> None:
     with pytest.raises(TypeError):
-        assert list_to_decimal(-1.5) == 1
+        assert list_to_decimal(arg) == 1
+
+
+# test out of range error
+def test_out_of_range_error() -> None:
+    with pytest.raises(ValueError):
+        value = list_to_decimal([0,13,2])
+        if value  == 132:
+            raise ValueError
