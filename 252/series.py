@@ -56,7 +56,5 @@ def get_every_second_indexes(ser: pd.Series,
     If even_index is False return every index where idx % 2 != 0
     Assume default indexing i.e. 0 -> n
     """
-    if even_index==True:
-        return [i for i, e in enumerate(ser) if i%2 == 0]
-    elif even_index==False:
-        return [i for i, e in enumerate(ser) if i%2 != 0]
+    first_idx = 0 if even_index else 1
+    return ser.iloc[first_idx::2]  
