@@ -7,14 +7,14 @@ def return_at_index(ser: pd.Series, idx: int) -> object:
     If you want to be extra careful catch and raise an error if
        the index does not exist.
     """
-    return ser.iloc[idx]
+    return ser.get(idx)
 
 
 def get_slice(ser: pd.Series, start: int, end: int) -> pd.core.series.Series:
     """Return the slice of the given Series in the range between
     start and end.
     """
-    return ser.iloc[start:end]
+    return ser[start:end]
 
 
 def get_slice_inclusive(ser: pd.Series,
@@ -28,25 +28,25 @@ def get_slice_inclusive(ser: pd.Series,
 def return_head(ser: pd.Series, num: int) -> pd.core.series.Series:
     """Return the first num elements of the given Series.
     """
-    return ser[:num]
+    return ser.head(num)
 
 
 def return_tail(ser: pd.Series, num: int) -> pd.core.series.Series:
     """Return the last num elements of the given Series.
     """
-    return ser[-num:]
+    return ser.tail(num)
 
 
 def get_index(ser: pd.Series) -> pd.core.indexes.base.Index:
     """Return all indexes of the given Series.
     """
-    return [i for i, e in enumerate(ser)]
+    return ser.index
 
 
 def get_values(ser: pd.Series) -> np.ndarray:
     """Return all the values of the given Series.
     """
-    return [e for i, e in enumerate(ser)]
+    return ser.values
 
 
 def get_every_second_indexes(ser: pd.Series,
