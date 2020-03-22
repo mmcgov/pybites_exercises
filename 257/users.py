@@ -9,7 +9,8 @@ def get_users(passwd: str) -> dict:
     passwd = passwd.split('\n')[1:-1]
     for entry in passwd:
         entry = entry.split(':')
-        results[entry[0].strip()] = entry[4].replace(',','').strip()
+        results[entry[0].strip()] = entry[4].replace(',','').strip() \
+                                    if entry[4] else 'unknown'
     return results
 
 
