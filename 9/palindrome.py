@@ -1,8 +1,8 @@
 """A palindrome is a word, phrase, number, or other sequence of characters
 which reads the same backward as forward"""
 import os
-import urllib.request
 import re
+import urllib.request
 
 DICTIONARY = os.path.join('/tmp', 'dictionary_m_words.txt')
 urllib.request.urlretrieve('http://bit.ly/2Cbj6zn', DICTIONARY)
@@ -19,29 +19,15 @@ def is_palindrome(word):
        Case insensitive, so Madam is valid too.
        It should work for phrases too so strip all but alphanumeric chars.
        So "No 'x' in 'Nixon'" should pass (see tests for more)"""
-    word = re.sub(r'\W+', '', word).lower()
-    for index, letter in enumerate(word):
-        if word[index] == word[-index-1]:
-            result = True
-        else:
-            result = False
-            break
-    return result
+    word = re.sub(r'\W+', '', word.lower())
+    return word == word[::-1]
 
 
 def get_longest_palindrome(words=None):
     """Given a list of words return the longest palindrome
        If called without argument use the load_dictionary helper
        to populate the words list"""
-    results = list()
-    if words==None:
+    if not words:
         words = load_dictionary()
-    else:
-        words = words
-    for word in words:
-        if is_palindrome(word):
-            results.append(word)
-        else:
-            continue
-    print(results)
-    return sorted(results)[0]
+    palindromes = (word for word in words if is_palindrome(word))
+    return max(palindromes, key=len)
