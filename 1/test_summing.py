@@ -13,3 +13,7 @@ def test_sum_numbers_various_inputs():
     assert sum_numbers([1, 2, 3]) == 6
     assert sum_numbers((1, 2, 3)) == 6
     assert sum_numbers([]) == 0  # !! [] not the same as None
+
+
+
+    print('test')
